@@ -3,7 +3,7 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBoard } from '../apis/boardApi';
+import { removeBoard } from '../apis/boardApi';
 
 const Board = () => {
     const [board, setBoard] = useState(null);
@@ -272,7 +272,7 @@ const Board = () => {
     }, [board, originFiles, changeFiles, uploadFiles]);
 
     const remove = useCallback((boardNo) => {
-        dispatch(deleteBoard(boardNo));
+        dispatch(removeBoard(boardNo));
         navi("/app/board-list");
     }, [dispatch, navi]);
     return (

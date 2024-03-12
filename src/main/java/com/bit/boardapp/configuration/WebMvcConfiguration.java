@@ -9,11 +9,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     // react의 라우트 요청 시 index.html로 가도록하는 설정
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/{spring:\\w+}")
-                .setViewName("forward:/");
-        registry.addViewController("/**/{spring:\\w+}")
-                .setViewName("forward:/");
-        registry.addViewController("/{spring:\\w+}/**{spring:?~(\\.js|\\.css)$}")
-                .setViewName("forward:/");
+        registry.addViewController("/app/**")
+                .setViewName("forward:/index.html");
     }
 }
